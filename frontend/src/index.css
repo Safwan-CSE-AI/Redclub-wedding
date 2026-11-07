@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { @apply bg-white font-sans text-black antialiased; }
+  :focus-visible { outline: 2px solid #000; outline-offset: 3px; }
+  .on-dark :focus-visible { outline-color: #fff; }
+  ::selection { background: #000; color: #fff; }
+}
+
+@layer components {
+  .label { @apply text-[11px] uppercase tracking-label; }
+  .link-u { @apply relative inline-block text-[11px] uppercase tracking-label after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:bg-current after:transition-transform after:duration-300 after:origin-left hover:after:scale-x-50; }
+  .field { @apply w-full border-0 border-b border-black bg-transparent px-0 py-3 text-sm outline-none placeholder:text-neutral-400 focus:border-b-2; }
+  .btn { @apply inline-flex items-center justify-center border border-black bg-black px-8 py-3 text-[11px] uppercase tracking-label text-white transition hover:bg-white hover:text-black disabled:opacity-50; }
+  .btn-light { @apply inline-flex items-center justify-center border border-white px-8 py-3 text-[11px] uppercase tracking-label text-white transition hover:bg-white hover:text-black; }
+  .page-pad { @apply px-5 md:px-10; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
